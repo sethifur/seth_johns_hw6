@@ -3,12 +3,15 @@ import sys
 import urllib.request
 import re
 import pprint
+import heapq
+
 
 def readFile(url):
     webText = urllib.request.urlopen(url)
     text = webText.read()
     pattern = '\/[0-9a-zA-Z]*\/[0-9a-zA-Z]*\/[0-9a-zA-Z]*\/[0-9a-zA-Z]*'
     text = text.replace(b'\n',b' ')
+    text = text.replace(b',' , b'')
     bitStringArray = text.split()
     stringArray = []
     for index in bitStringArray:
@@ -20,11 +23,18 @@ def readFile(url):
     dictResult = dict()
     for index in narrowSearch:
         if dictResult.get(index) == None:
-            dictResult = dictResult + {index:0}
+            dictResult[index] = 1
         else: 
             dictResult[index] += 1
-    print(dictResult)
+    minMax(dictResult)
+    #for index in dictResult:        
+    #    print(index,'\t',dictResult[index],'\n')
+    
 
+def minMax(begin):
+    results = heapq.nlargest(25,begin,key=begin.get)
+    for i in results:
+        print(i,'\t',begin[i],'\n')
 
 # Main Function
 def main():
