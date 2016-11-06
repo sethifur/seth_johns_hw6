@@ -6,10 +6,14 @@ import pprint
 import heapq
 
 
+def helpUsage():
+    print('Usage is: ./seth_johns_hw6.py <file input>')
+
+
 def readFile(url):
     webText = urllib.request.urlopen(url)
     text = webText.read()
-    pattern = '\/[0-9a-zA-Z]*\/[0-9a-zA-Z]*\/[0-9a-zA-Z]*\/[0-9a-zA-Z]*'
+    pattern = '\/([0-9a-zA-Z\.]*)*'
     text = text.replace(b'\n',b' ')
     text = text.replace(b',' , b'')
     bitStringArray = text.split()
@@ -26,15 +30,16 @@ def readFile(url):
             dictResult[index] = 1
         else: 
             dictResult[index] += 1
-    minMax(dictResult)
+    getMax(dictResult)
     #for index in dictResult:        
     #    print(index,'\t',dictResult[index],'\n')
     
 
-def minMax(begin):
+def getMax(begin):
     results = heapq.nlargest(25,begin,key=begin.get)
+    print('*** Top 25 page errors ***')
     for i in results:
-        print(i,'\t',begin[i],'\n')
+        print('Count:',begin[i],'\t','page: ',i,'\n')
 
 # Main Function
 def main():
@@ -42,8 +47,13 @@ def main():
     Tests readFile
     """
     #url = 'http://icarus.cs.weber.edu/~hvalle/cs3030/data/error.log.test'
-    url = 'http://icarus.cs.weber.edu/~hvalle/cs3030/data/error.log.full'
-    readFile(url)
+
+    try:
+        url = sys.argv[1]
+        readFile(url)
+    except IndexError:
+        helpUsage()
+    
     return
 
 if __name__ == '__main__':
