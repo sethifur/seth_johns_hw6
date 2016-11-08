@@ -1,0 +1,37 @@
+commit be3fd510cec06e83593f008110a906be04f6ca38
+Author: Seth Johns <sethjohns@mail.weber.edu>
+Date:   Sun Nov 6 01:08:06 2016 -0600
+
+    Regex working to grab only the page name
+
+commit 9191a37ea52f378a21e471eab5fb291058590167
+Author: Seth Johns <sethjohns@mail.weber.edu>
+Date:   Sat Nov 5 16:27:17 2016 -0600
+
+    prints out the top counted twenty five
+
+commit 3236faffdc3779f66db8add6f3b15892215d1411
+Author: Seth Johns <sethjohns@mail.weber.edu>
+Date:   Sat Nov 5 15:27:32 2016 -0600
+
+    made an array of all errors
+
+commit 547107f13c600d0742148c2b0a2268aa03dc6f55
+Merge: d65bf15 da1694d
+Author: Seth Johns <sethjohns@mail.weber.edu>
+Date:   Thu Nov 3 12:55:25 2016 -0600
+
+    Merge branch 'master' of https://github.com/sethifur/seth_johns_hw6
+    added a method the prints and reads text from an error log
+
+commit d65bf15cba97b22480465d7ff96a7a41bcff41b8
+Author: Seth Johns <sethjohns@mail.weber.edu>
+Date:   Thu Nov 3 12:55:20 2016 -0600
+
+    first commit. uses urlopen to read website
+
+commit da1694dc1d875b305a9c5006881c8b1007fa666c
+Author: sethifur <sethjohns@mail.weber.edu>
+Date:   Thu Nov 3 12:53:15 2016 -0600
+
+    Initial commit

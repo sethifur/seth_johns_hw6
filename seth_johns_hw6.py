@@ -7,10 +7,18 @@ import heapq
 
 
 def helpUsage():
+    """
+    Prints how the program is to be used
+    """
     print('Usage is: ./seth_johns_hw6.py <file input>')
 
 
 def readFile(url):
+    """
+    readFile reads an error file and prints the top 25 errors
+    Args:
+        url address to a error log
+    """
     webText = urllib.request.urlopen(url)
     text = webText.read()
     pattern = '\/([0-9a-zA-Z\.]*)*'
@@ -36,6 +44,11 @@ def readFile(url):
     
 
 def getMax(begin):
+    """
+    prints out the top 25 errors
+    Args:
+        begin is a dictionary with the list of errors and how many times that error re occurs
+    """
     results = heapq.nlargest(25,begin,key=begin.get)
     print('*** Top 25 page errors ***')
     for i in results:
